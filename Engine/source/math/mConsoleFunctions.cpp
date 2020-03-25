@@ -413,3 +413,21 @@ DefineEngineFunction(mGetSignedAngleBetweenVectors, F32, (VectorF vecA, VectorF 
 
    return MathUtils::getSignedAngleBetweenVectors(vecA, vecB, norm);
 }
+
+DefineEngineFunction(isNumeric, bool, (const char * text), (""),
+   "Returns if given input is a number."
+   "@param string to check."
+   "@returns true if input is a whole number.")
+{  
+   U32 length = dStrlen(text);
+
+	for(U32 x = 0; x < length; x++)
+	{  
+		if(!isdigit(text[x]))
+		{
+			return false;
+		}
+	}
+
+   return true;
+}  
